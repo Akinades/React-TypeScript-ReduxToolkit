@@ -1,0 +1,17 @@
+.button {
+  height: 100% !important;
+  width: 100% !important;
+}
+.button:hover {
+  background-color: orange;
+  border: none;
+}
+.text {
+  position: relative;
+  bottom: -20px;
+  width: 120px;
+  color: white;
+  background-color: #6eda78;
+  border-radius: 30px;
+  display: inline-block;
+}
