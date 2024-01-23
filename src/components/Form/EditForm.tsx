@@ -31,7 +31,9 @@ const EditForm: React.FC<{ id: any }> = ({ id }) => {
     const currentFormData = form.getFieldsValue();
     const updatedFormData = { ...currentFormData, id };
 
-    const storedFormData = JSON.parse(localStorage.getItem("formdata")) ?? [];
+    const storedFormDataRaw = localStorage.getItem("formdata");
+    const storedFormData =
+      storedFormDataRaw !== null ? JSON.parse(storedFormDataRaw) : [];
 
     if (id !== null) {
       const indexOfUpdatedData = storedFormData.findIndex(
