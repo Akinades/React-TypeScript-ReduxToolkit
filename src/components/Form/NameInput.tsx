@@ -14,7 +14,7 @@ const NameInput: React.FC = () => {
         name="nameTitle"
         rules={[{ required: true, message: "Please input your nameTitle!" }]}
       >
-        <Select placeholder={t("Name Title" + "...")} style={{ width: 70 }}>
+        <Select placeholder={t("Name Title") + "..."} style={{ width: 70 }}>
           {nameTitleOption.map((option) => (
             <Select.Option key={option.value} value={option.value}>
               {option.label}
