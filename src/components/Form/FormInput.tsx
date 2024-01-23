@@ -18,14 +18,14 @@ const FormInput: React.FC = () => {
     form.resetFields();
   }
   function onFinish(values: Record<string, string | number>) {
-    const { pat1, pat2, pat3, pat4, pat5, ...restValues } = values;
+    const { pat1, pat2, pat3, pat4, pat5 } = values;
 
     const id_card = `${pat1 || ""}${pat2 || ""}${pat3 || ""}${pat4 || ""}${
       pat5 || ""
     }`;
 
     const id = uuidv4();
-    const formData = { ...restValues, id, id_card };
+    const formData = { ...values, id, id_card };
     const existingFormData = JSON.parse(
       localStorage.getItem("formdata") || "[]"
     );
