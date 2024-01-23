@@ -22,24 +22,9 @@ const EditForm: React.FC<{ id: any }> = ({ id }) => {
       const formData = dataInput.find((formItem) => formItem.id === id);
       console.log("formData:", formData);
       if (formData) {
-        const { pat1, pat2, pat3, pat4, pat5 } = formData;
-        const id_card = `${pat1 || ""}${pat2 || ""}${pat3 || ""}${pat4 || ""}${
-          pat5 || ""
-        }`;
-
-        form.setFieldsValue({
-          ...(pat1 !== undefined && { pat1 }),
-          ...(pat2 !== undefined && { pat2 }),
-          ...(pat3 !== undefined && { pat3 }),
-          ...(pat4 !== undefined && { pat4 }),
-          ...(pat5 !== undefined && { pat5 }),
-          id_card,
-          ...(formData?.birthday !== undefined && {
-            birthday: formData.birthday,
-          }),
-          ...formData,
-        });
+        form.setFieldsValue(formData);
       }
+      console.log("birthday in formData:", formData?.birthday);
     }
   }, [form, id, dataInput]);
 

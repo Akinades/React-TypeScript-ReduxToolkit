@@ -25,7 +25,6 @@ const Birthday: React.FC<BirthdayProps> = ({ form }) => {
             placeholder={t("MM/DD/YYYY")}
             format="MM/DD/YYYY"
             onChange={(date) => {
-              console.log("Selected date:", date);
               form.setFieldsValue({
                 birthday: date?.format("MM/DD/YYYY"),
               });

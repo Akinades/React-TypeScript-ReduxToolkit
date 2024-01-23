@@ -13,11 +13,6 @@ interface FormData {
   phoneNumber: string;
   passsport: string;
   salary: string;
-  pat1?: string;
-  pat2?: string;
-  pat3?: string;
-  pat4?: string;
-  pat5?: string;
 }
 
 interface FormState {
