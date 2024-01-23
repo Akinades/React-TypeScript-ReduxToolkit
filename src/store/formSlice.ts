@@ -53,6 +53,7 @@ const formSlice = createSlice({
     },
     updateFormData: (state, action: PayloadAction<FormData>) => {
       const { id } = action.payload;
+
       const index = state.formData.findIndex((data) => data.id === id);
       if (index !== -1) {
         state.formData[index] = action.payload;

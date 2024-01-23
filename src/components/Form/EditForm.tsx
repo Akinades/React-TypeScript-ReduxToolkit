@@ -24,16 +24,31 @@ const EditForm: React.FC<{ id: any }> = ({ id }) => {
       if (formData) {
         form.setFieldsValue(formData);
       }
-      console.log("birthday in formData:", formData?.birthday);
     }
   }, [form, id, dataInput]);
 
   function handleSubmit() {
     const currentFormData = form.getFieldsValue();
     const updatedFormData = { ...currentFormData, id };
-    dispatch(updateFormData(updatedFormData));
-    localStorage.setItem("formdata", JSON.stringify([updatedFormData]));
-    console.log(updatedFormData);
+
+    const storedFormData = JSON.parse(localStorage.getItem("formdata")) ?? [];
+
+    if (id !== null) {
+      const indexOfUpdatedData = storedFormData.findIndex(
+        (data: any) => data.id === id
+      );
+
+      if (indexOfUpdatedData !== -1) {
+        storedFormData[indexOfUpdatedData] = updatedFormData;
+      } else {
+        storedFormData.push(updatedFormData);
+      }
+
+      localStorage.setItem("formdata", JSON.stringify(storedFormData));
+
+      dispatch(updateFormData(updatedFormData));
+      console.log(updatedFormData);
+    }
   }
 
   function resetForm() {
